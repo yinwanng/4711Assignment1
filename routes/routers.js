@@ -48,7 +48,7 @@ router.post('/', function(req, res, next){
                 res.send("The email or password is incorrect. Please try again");
                 return next(err);
             } else {
-                // req.session.userId = user._id;
+                req.session.userId = user._id;
                 return res.redirect('/user');
             }
         });
@@ -59,5 +59,21 @@ router.post('/', function(req, res, next){
     }
 });
 
+router.get('/user', function(req, res, next) {
+    console.log(req.session.userId);
+    User.findById(req.session.userId).exec(function(error, user) {
+        if(error) {
+            return next(error);
+        } else {
+            if (user === null) {
+                var err = new Error('Sorry, you are not authorized.');
+                err.status = 400;
+                 return next(err);
+            } else {
+                return res.send("<h1>Username: " + user.username + "</h1>");
+            }
+        }
+    })
+})
 
 module.exports = router;
