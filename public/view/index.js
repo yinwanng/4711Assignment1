@@ -6,6 +6,8 @@ window.onload = () => {
 setupLogin = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
+    form.method = "post";
+    form.action = "/";
     let br = document.createElement("br");
     let br2 = document.createElement("br");
     let br3 = document.createElement("br");

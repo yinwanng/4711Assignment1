@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrpyt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     email: {
@@ -21,7 +21,8 @@ const UserSchema = new mongoose.Schema({
 }); 
 
 UserSchema.statics.authenticate = (email, password, callback) => {
-    User.findOne({email: email}).exec(function( err, user){
+    User.findOne({email: email})
+    .exec(function( err, user){
         if(err) {
             return callback(err);
         } else if(!user) {
@@ -39,6 +40,18 @@ UserSchema.statics.authenticate = (email, password, callback) => {
         })
     });
 }
+
+// hash password
+UserSchema.pre('save', function(next) {
+    var user = this;
+    bcrypt.hash(user.password, 10, function(err, hash) {
+        if(err) {
+            return next(err);
+        }
+        user.password = hash;
+        next();
+    })
+})
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

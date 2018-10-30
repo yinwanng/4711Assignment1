@@ -37,7 +37,25 @@ router.post('/', function(req, res, next){
                 return res.redirect('/about');
             }
         })
-    
+    } else if (req.body.loginEmail && req.body.loginPassword) {
+        console.log("loginemail: " + req.body.loginEmail);
+        console.log("loginpassword: " + req.body.loginPassword);
+        User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
+            if (error || !user) {
+                var err = new Error('The email or password is incorrect.');
+                err.status = 401;
+                //
+                res.send("The email or password is incorrect. Please try again");
+                return next(err);
+            } else {
+                // req.session.userId = user._id;
+                return res.redirect('/user');
+            }
+        });
+    } else {
+        var err = new Error('All fields are quired.');
+        err.status = 400;
+        return next(err);
     }
 });
 
