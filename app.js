@@ -3,12 +3,15 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const path = require('path');
+const bodyParser = require('body-parser');
 
 // connect to mongodb
-mongoose.connect("mongodb://localhost:27017/", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:27017/data", { useNewUrlParser: true })
 .then(()=> console.log("Connected to MongoDB...."))
 .catch(err => console.error('Could not connect to MongoDB...'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 var routes = require('./routes/routers');
