@@ -1,14 +1,33 @@
 // Execute functions when page is loaded
 window.onload=function() {
     createWelcomeMessage();
+    createScore();
     createButtons();
     randomDictionaryWord();
     populateWord();
 }
 
+
 // Welcome message on screen
 function createWelcomeMessage(){
     document.getElementById("welcomeMessage").innerHTML = welcomeTitle;
+}
+
+function createScore(){
+    document.getElementById("scoreLabel").innerHTML ="Score: ";
+    document.getElementById("lifeLabel").innerHTML ="Life: ";
+    let spanScoreCount = document.createElement("span");
+    spanScoreCount.textContent = "0";
+    spanScoreCount.id = "scoreCount";
+    let sScore = document.getElementById("scoreLabel");
+    sScore.appendChild(spanScoreCount);
+
+    let spanLifeCount = document.createElement("span");
+    spanLifeCount.textContent = "7";
+    spanLifeCount.id = "lifeCount";
+    let lScore = document.getElementById("lifeLabel");
+    lScore.appendChild(spanLifeCount);
+
 }
 
 // Create buttons for the alphabet keys and restart game
