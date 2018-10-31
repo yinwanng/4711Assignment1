@@ -4,23 +4,14 @@ const path = require('path');
 var User = require('../public/models/userModel');
 var Score = require('../public/models/scoreModel');
 
-var bodyParser = require('body-parser')
-var app = express()
-
-// parse application/json
-// app.use(bodyParser.json())
-// parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }))
-
-
 // Routing    
 router.get('/', function(req, res){
     return res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// posting score with username to db
 router.post('/score', function(req, res, next){    
-    User.findById(req.session.userId).exec(function(error, user) {
-       
+    User.findById(req.session.userId).exec(function(error, user) {       
         var scoreData = {  
             username: user.username,
             score: req.body.hiddenScoreValue,
@@ -29,16 +20,14 @@ router.post('/score', function(req, res, next){
             if(error) {
                 return next(error);
             } else {
-                // return res.redirect('/ranking');
                 return res.sendFile(path.join(__dirname, '../public/ranking.html'));
             }
         })
     })
 });
 
+// login and registration
 router.post('/', function(req, res, next){
-    // console.log(req.body.password);
-    
     if(req.body.password !== req.body.passwordConfirmation) {
         var err = new Error('The passwords do not match.');
         err.status = 400;
@@ -82,8 +71,8 @@ router.post('/', function(req, res, next){
     }
 });
 
+// retrieving the user account
 router.get('/user', function(req, res, next) {
-    // console.log(req.session.userId);
     User.findById(req.session.userId).exec(function(error, user) {
         if(error) {
             return next(error);
@@ -93,18 +82,23 @@ router.get('/user', function(req, res, next) {
                 err.status = 400;
                  return next(err);
             } else {
-                // return res.send("<h1>Username: " + user.username + "</h1>");
                 return res.sendFile(path.join(__dirname, '../public/hangman.html'));
             }
         }
     })
 })
 
-// retrieve username
+// retrieve the user's username
 router.get('/information', function(req, res, next) {
     User.findById(req.session.userId).exec(function(error, user) {
         res.send(user.username);
     });
+});
+
+router.get('/score', function(req, res, next){   
+    Score.find({}, (err, scores) => {
+        res.json(scores);
+   });
 });
 
 module.exports = router;

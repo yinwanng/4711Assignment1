@@ -7,6 +7,7 @@ var guessWord;                                   // word to be guessed
 var lettersGuessedCorrect = [];                  // letters of the correct guesses
 var currentWord;                                 // current word displayed
 var username;
+var scores;
 // the alphabet in an array
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
                 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 
@@ -47,6 +48,7 @@ var dictionary = [
     }
 ];
 
+// retrieving the username
 retrieveUsername = () => {
     $.ajax({
         type: 'GET',
@@ -58,3 +60,13 @@ retrieveUsername = () => {
     });
 }
 
+// retrieving the scores 
+retrieveScores = () => {
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/score",
+        contentType: "application/json",
+        success: function(data){
+            scores = data;
+    }});
+}

@@ -7,7 +7,6 @@ window.onload=function() {
     populateWord();
     submitButton();
     retrieveUsername();
-    // createForm();
 }
 
 // The letter clicked is being guessed if it is in the word
