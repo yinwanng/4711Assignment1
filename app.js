@@ -36,6 +36,6 @@ app.use(session({
 // applying the routes to application
 app.use('/', routes);
 
-app.listen(3000, function() {
+app.listen(process.env.port || 3000, function() {
     console.log('Listening on port 3000...');
 });
