@@ -77,4 +77,11 @@ router.get('/user', function(req, res, next) {
     })
 })
 
+// retrieve username
+router.get('/information', function(req, res, next) {
+    User.findById(req.session.userId).exec(function(error, user) {
+        res.send(user.username);
+    });
+});
+
 module.exports = router;
