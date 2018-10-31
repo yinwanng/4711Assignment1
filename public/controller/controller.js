@@ -5,7 +5,9 @@ window.onload=function() {
     createButtons();
     randomDictionaryWord();
     populateWord();
+    submitButton();
     retrieveUsername();
+    // createForm();
 }
 
 // The letter clicked is being guessed if it is in the word
@@ -63,11 +65,13 @@ function decrementLifeScore() {
 // Add one point to the Score Count
 function incrementScore() {
     document.getElementById("scoreCount").innerHTML = ++scoreCount;
+    $("#hiddenScore").val(scoreCount);
 }
 
 // Minus one point on the Score Count
 function decrementScore() {
     document.getElementById("scoreCount").innerHTML = --scoreCount;
+    $("#hiddenScore").val(scoreCount);
 }
 
 // Display the letter if there is a match

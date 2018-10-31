@@ -46,3 +46,8 @@
 .keyboard {
     margin: 2px;
 }
+
+
+#hiddenScore{
+    display: none;
+}

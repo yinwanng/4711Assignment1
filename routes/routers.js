@@ -3,19 +3,39 @@ const router = express.Router();
 const path = require('path');
 var User = require('../public/models/userModel');
 
+var bodyParser = require('body-parser')
+var app = express()
+
+// parse application/json
+app.use(bodyParser.json())
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
 // Routing    
 router.get('/', function(req, res){
     return res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-router.get('/about', function(req, res){
-    // return res.sendFile(path.join(__dirname, '../public/index.html'));
-    return res.send("About");
+// router.get('/score', function(req, res){
+//     // return res.sendFile(path.join(__dirname, '../public/index.html'));
+//     return res.sendFile(path.join(__dirname, '../public/ranking.html'));
+// });
+
+router.post('/score', function(req, res, next){
+    // User.findById(req.session.userId).exec(function(error, user) {
+    //     return res.redirect('/score');
+        
+    // });
+    console.log(req.body.hiddenScoreValue);
 });
+
+
 
 
 router.post('/', function(req, res, next){
     // console.log(req.body.password);
+    
     if(req.body.password !== req.body.passwordConfirmation) {
         var err = new Error('The passwords do not match.');
         err.status = 400;
@@ -60,7 +80,7 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/user', function(req, res, next) {
-    console.log(req.session.userId);
+    // console.log(req.session.userId);
     User.findById(req.session.userId).exec(function(error, user) {
         if(error) {
             return next(error);

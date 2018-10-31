@@ -14,18 +14,18 @@
         <h1 id="welcomeMessage"></h1>
         <div id="messageResult"></div>
     </div>
-    <div class="container">    
-        <div id="main">
-            <!-- <div id="scoreLabel">Score: <span id="scoreCount">0</span></div> -->
-            <!-- <div id="lifeLabel">Life: <span id="lifeCount">7</span></div> -->
-            <div id="scoreLabel"></div>
-            <div id="lifeLabel"></div>
-            <h5 id="definition"></h5>
-            <div id="guessWord"></div>
-            <div id="restartButton"></div>
-        </div>
-        <form action="/about">
-            <button type="submit">Submit</button>
+    <div class="container" id="containerbox">    
+        <form action="/score" id="hangmanForm" method="post">
+            <!-- <div id="main"> -->
+                <!-- <div id="scoreLabel">Score: <span id="scoreCount">0</span></div> -->
+                <!-- <div id="lifeLabel">Life: <span id="lifeCount">7</span></div> -->
+                <div id="scoreLabel"></div>
+                <div id="lifeLabel"></div>
+                <h5 id="definition"></h5>
+                <div id="guessWord"></div>
+                <div id="restartButton"></div>
+                <input type="text" name="hiddenScoreValue" id="hiddenScore">
+            <!-- </div> -->
         </form>
     </div>
 </body>
