@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const ScoreSchema = new mongoose.Schema({
-    score: Number,
-    username: String
+    username: String,
+    score: Number
 });
 
 var Score = mongoose.model('Score', ScoreSchema);

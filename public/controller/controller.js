@@ -107,6 +107,7 @@ function resetButtons(){
 
 // Restarting the game by continueing
 function restartGame() {
+    event.preventDefault();
     continuePlaying();
 }
 
