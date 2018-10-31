@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 var User = require('../public/models/userModel');
+var Score = require('../public/models/scoreModel');
 
 var bodyParser = require('body-parser')
 var app = express()
@@ -17,22 +18,23 @@ router.get('/', function(req, res){
     return res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// router.get('/score', function(req, res){
-//     // return res.sendFile(path.join(__dirname, '../public/index.html'));
-//     return res.sendFile(path.join(__dirname, '../public/ranking.html'));
-// });
-
-router.post('/score', function(req, res, next){
-    // User.findById(req.session.userId).exec(function(error, user) {
-    //     return res.redirect('/score');
-        
-    // });
-    console.log(req.body.hiddenScoreValue);
+router.post('/score', function(req, res, next){    
+    User.findById(req.session.userId).exec(function(error, user) {
+       
+        var scoreData = {  
+            username: user.username,
+            score: req.body.hiddenScoreValue,
+        }
+        Score.create(scoreData, function (error, score) {
+            if(error) {
+                return next(error);
+            } else {
+                // return res.redirect('/ranking');
+                return res.sendFile(path.join(__dirname, '../public/ranking.html'));
+            }
+        })
+    })
 });
-
-
-
-
 
 router.post('/', function(req, res, next){
     // console.log(req.body.password);
