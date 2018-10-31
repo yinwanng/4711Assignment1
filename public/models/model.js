@@ -6,7 +6,7 @@ var scoreCount = 0;                              // score of the game
 var guessWord;                                   // word to be guessed
 var lettersGuessedCorrect = [];                  // letters of the correct guesses
 var currentWord;                                 // current word displayed
-
+var username;
 // the alphabet in an array
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
                 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 
@@ -46,3 +46,15 @@ var dictionary = [
         definition: "A vast computer network linking smaller computer networks worldwide (usually preceded by the). ",
     }
 ];
+
+retrieveUsername = () => {
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/information",
+        contentType: "application/json",
+        success: function(data) {
+            username = data;
+        },
+    });
+}
+

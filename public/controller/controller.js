@@ -5,8 +5,8 @@ window.onload=function() {
     createButtons();
     randomDictionaryWord();
     populateWord();
+    retrieveUsername();
 }
-
 
 // The letter clicked is being guessed if it is in the word
 function letterClicked(){

@@ -39,3 +39,4 @@ function createButtons(){
    document.getElementById("restartButton").appendChild(restartButton);  
    restartButton.addEventListener("click", restartGame);
 }
+
