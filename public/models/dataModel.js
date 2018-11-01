@@ -50,7 +50,7 @@ var dictionary = [
 
 // retrieving the username
 retrieveUsername = () => {
-    $.ajax({
+    return $.ajax({
         type: 'GET',
         url: "/information",
         // url: "https://hangman4711.azurewebsites.net/information",

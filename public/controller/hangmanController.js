@@ -6,7 +6,14 @@ window.onload=function() {
     randomDictionaryWord();
     populateWord();
     submitButton();
-    retrieveUsername();
+    // retrieveUsername();
+    retrieveUsername().then(updateScore);
+}
+
+function updateScore(scores) {
+
+//    console.log(scores.score);
+    document.getElementById("scoreCount").innerHTML= scores.score; 
 }
 
 // The letter clicked is being guessed if it is in the word
