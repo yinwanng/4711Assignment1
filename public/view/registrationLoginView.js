@@ -4,6 +4,7 @@ setupLogin = () => {
     let form = document.createElement("form");
     form.method = "post";
     form.action = "/";
+    form.id = "loginForm";
     let br = document.createElement("br");
     let br2 = document.createElement("br");
     form.classList = ["form-group row"];
@@ -50,7 +51,6 @@ setupLogin = () => {
     signUpButton.appendChild(signUpText);
     signUpButton.addEventListener("click", signMeUp);
     form.appendChild(signUpButton);
-
     
 }
 
@@ -60,7 +60,9 @@ setupRegistration = () => {
     form.method = "post";
     form.action = "/";
     form.classList = ["form-group row"];
+    form.id = "registrationForm";
     form.style.display = "none";
+    
 
     let br = document.createElement("br");
     let br2 = document.createElement("br");
@@ -112,12 +114,21 @@ setupRegistration = () => {
     form.appendChild(passwordConfirmationLabel);
     form.appendChild(passwordConfirmationInput);
 
-    let loginButton = document.createElement("button");
-    let loginText = document.createTextNode("Register");
-    loginButton.classList = ["btn btn-primary"];
-
-    loginButton.appendChild(loginText);
+    let registerButton = document.createElement("button");
+    let registerText = document.createTextNode("Register");
+    registerButton.classList = ["btn btn-primary"];
+    registerButton.id = "registerButton";
+    registerButton.appendChild(registerText);
     form.appendChild(br);
     form.appendChild(br2);
-    form.appendChild(loginButton);
+    form.appendChild(registerButton);
+
+
+
+    let loginMeButton = document.createElement("button");
+    loginMeButton.classList = ["btn btn-secondary"];
+    let loginMeText = document.createTextNode("Have an account already? Click here!");
+    loginMeButton.appendChild(loginMeText);
+    loginMeButton.addEventListener("click", loginMeIn);
+    form.appendChild(loginMeButton);
 }

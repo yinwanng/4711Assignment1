@@ -71,6 +71,6 @@ button {
     margin: 10px;
 }
 
-#loginButton {
+#loginButton, #registerButton {
     margin-right: 10px;
 }
