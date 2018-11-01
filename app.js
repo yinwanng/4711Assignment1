@@ -6,7 +6,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
+var cors = require('cors');
+app.use(cors());
 // connect to mongodb localhost for development/testing
 // mongoose.connect("mongodb://localhost:27017/data", { useNewUrlParser: true })
 // .then(()=> console.log("Connected to MongoDB...."))
