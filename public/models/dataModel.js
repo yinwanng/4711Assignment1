@@ -52,7 +52,8 @@ var dictionary = [
 retrieveUsername = () => {
     $.ajax({
         type: 'GET',
-        url: "https://hangman4711.azurewebsites.net/information",
+        url: "/information",
+        // url: "https://hangman4711.azurewebsites.net/information",
         contentType: "application/json",
         success: function(data) {
             username = data;
@@ -64,8 +65,8 @@ retrieveUsername = () => {
 retrieveScores = () => {
    return $.ajax({
         type: 'GET',
-        
-        url: "https://hangman4711.azurewebsites.net/score",
+        url: "/score",
+        // url: "https://hangman4711.azurewebsites.net/score",
         contentType: "application/json",
         success: function(data){
             scores = data;           
