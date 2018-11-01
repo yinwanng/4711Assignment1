@@ -102,4 +102,16 @@ router.get('/score', function(req, res, next){
    });
 });
 
+router.get('/logout', function (req, res) {
+    if(req.session) {
+        req.session.destroy(function (err) {
+            if(err) {
+
+            } else {
+                return res.redirect('/');
+            }
+        }); 
+    }
+})
+
 module.exports = router;

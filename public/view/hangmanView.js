@@ -50,7 +50,6 @@ function submitButton() {
     document.getElementById("centerButtons").appendChild(submitButton);
 }
 
-
 function createForm(){
     let container = document.getElementById("containerbox");
     let form = document.createElement("form");
