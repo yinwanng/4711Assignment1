@@ -14,7 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 // mongoose.set('useCreateIndex', true);
 
 // ->> connect to mongodb live for production environment
-mongoose.connect("mongodb://admin:admin@cluster0-shard-00-00-ddn31.mongodb.net:27017,cluster0-shard-00-01-ddn31.mongodb.net:27017,cluster0-shard-00-02-ddn31.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true", { useNewUrlParser: true })
+mongoose.connect("mongodb://admin:admin@cluster0-shard-00-00-ddn31.mongodb.net:27017,cluster0-shard-00-01-ddn31.mongodb.net:27017,cluster0-shard-00-02-ddn31.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true", { useNewUrlParser: true });
 // .then(()=> console.log("Connected to MongoDB...."))
 // .catch(err => console.error('Could not connect to MongoDB...'));
 
@@ -22,11 +22,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 var routes = require('./routes/routers');
 
