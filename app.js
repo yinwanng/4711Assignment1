@@ -6,8 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-var cors = require('cors');
-app.use(cors());
+
 // connect to mongodb localhost for development/testing
 // mongoose.connect("mongodb://localhost:27017/data", { useNewUrlParser: true })
 // .then(()=> console.log("Connected to MongoDB...."))
@@ -22,12 +21,6 @@ mongoose.connect("mongodb://admin:admin@cluster0-shard-00-00-ddn31.mongodb.net:2
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
 
 var routes = require('./routes/routers');
 
