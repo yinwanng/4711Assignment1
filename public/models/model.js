@@ -62,11 +62,14 @@ retrieveUsername = () => {
 
 // retrieving the scores 
 retrieveScores = () => {
-    $.ajax({
+   return $.ajax({
         type: 'GET',
+        
         url: "http://localhost:3000/score",
         contentType: "application/json",
         success: function(data){
             scores = data;
+            // displayInformation(data);
+           
     }});
 }

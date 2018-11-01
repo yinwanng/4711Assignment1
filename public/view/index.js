@@ -112,7 +112,4 @@ setupRegistration = () => {
     loginButton.appendChild(loginText);
     form.appendChild(br8);
     form.appendChild(loginButton);
-
-
-    
 }

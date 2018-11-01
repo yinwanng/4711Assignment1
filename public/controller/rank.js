@@ -1,3 +1,3 @@
 window.onload = () => {
-    retrieveScores();
+    retrieveScores().then(displayInformation);
 }
