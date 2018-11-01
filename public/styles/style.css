@@ -4,3 +4,68 @@
 #container {
     text-align: center;
 }
+
+#rankContainer {
+    text-align: center;
+}
+
+#rankTable {
+    margin: 0px auto; 
+}
+
+#buttons {
+    padding-top: 40px;
+    text-align: center;
+}
+
+#welcomeMessage {
+    text-align: center;
+    padding-top: 35px;
+    color: blue;
+}
+
+#lifeLabel, #scoreLabel {
+    font-weight: bold;
+    text-align: center;
+    padding-right: 40px;
+    font-size: 30px;
+    color: orange;
+}
+
+#definition {
+    text-align: center;
+    margin: 15px;
+}
+
+#guessWord {
+    text-align: center;
+    font-size: 40px;
+}
+
+#centerButtons {
+    margin : 15px;
+    text-align: center;
+}
+
+#messageResult{
+    text-align: center;
+    color: red;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.characterToGuess {
+    margin: 5px;
+}
+
+.keyboard {
+    margin: 2px;
+}
+
+
+#hiddenScore{
+    display: none;
+}
+button {
+    margin: 10px;
+}

@@ -49,7 +49,7 @@ function createButtons(){
    restartButton.classList = ['btn btn-warning'];
    var text = document.createTextNode("Restart Game");
    restartButton.appendChild(text);
-   document.getElementById("restartButton").appendChild(restartButton);  
+   document.getElementById("centerButtons").appendChild(restartButton);  
    restartButton.addEventListener("click", restartGame);
 }
 
@@ -69,7 +69,7 @@ function submitButton() {
     // container.appendChild(form);
 
     
-    document.getElementById("hangmanForm").appendChild(submitButton);
+    document.getElementById("centerButtons").appendChild(submitButton);
 }
 
 

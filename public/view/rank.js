@@ -1,19 +1,18 @@
 displayInformation = (scores) => {
-    let container = document.getElementById("rankContainer");
-    // console.log(scores);
-    document.write('<table>',
-         '<tr><td>Username</td>',
-         '<td>Score</td>');
-         
+    var tableData = "<tr><td>Username</td><td>Score</td>";
     scores.forEach(d => {
         console.log(`${d.username}, ${d.score}`);
         // document.createElement("")
-        document.write('<tr><td>', 
-                         `${d.username}`, '</td><td>',
-                         `${d.score}`, '</td></tr>');
+        // document.write('<tr><td>', 
+        //                  `${d.username}`, '</td><td>',
+        //                  `${d.score}`, '</td></tr>');
                          
+        tableData += "<tr><td>" + `${d.username}` + "</td><td>" + `${d.score}` + "</td></tr>";
     });
-    document.write('</table>'); 
-    
-    
+    $("#rankTable").append(tableData);  
 }
+
+formatTables = () => {
+    $("#rankTable td").css("padding-right", "100px");
+}
+

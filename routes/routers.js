@@ -46,7 +46,7 @@ router.post('/', function(req, res, next){
             if(error) {
                 return next(error);
             } else {
-                return res.redirect('/about');
+                return res.redirect('/user');
             }
         })
     } else if (req.body.loginEmail && req.body.loginPassword) {
