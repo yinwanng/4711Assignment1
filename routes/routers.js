@@ -6,7 +6,7 @@ var Score = require('../public/models/scoreModel');
 
 // Routing    
 router.get('/', function(req, res){
-    return res.sendFile(path.join(__dirname, '../public/index.html'));
+    return res.sendFile(path.join(__dirname, '../public/registrationLogin.html'));
 });
 
 // posting score with username to db
@@ -20,7 +20,7 @@ router.post('/score', function(req, res, next){
             if(error) {
                 return next(error);
             } else {
-                return res.sendFile(path.join(__dirname, '../public/ranking.html'));
+                return res.sendFile(path.join(__dirname, '../public/leaderboard.html'));
             }
         })
     })
@@ -95,6 +95,7 @@ router.get('/information', function(req, res, next) {
     });
 });
 
+// retrieve all the scores in db
 router.get('/score', function(req, res, next){   
     Score.find({}, (err, scores) => {
         res.json(scores);

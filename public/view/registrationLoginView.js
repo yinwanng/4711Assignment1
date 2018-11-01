@@ -1,8 +1,3 @@
-window.onload = () => {
-    setupLogin();
-    setupRegistration();
-}
-
 setupLogin = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
@@ -23,7 +18,6 @@ setupLogin = () => {
     emailInput.required = true;
     emailInput.name = "loginEmail";
     
-
     let passwordLabel = document.createElement("label");
     let passwordText = document.createTextNode("Password");
     passwordLabel.appendChild(passwordText);

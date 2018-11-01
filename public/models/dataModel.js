@@ -68,8 +68,6 @@ retrieveScores = () => {
         url: "http://localhost:3000/score",
         contentType: "application/json",
         success: function(data){
-            scores = data;
-            // displayInformation(data);
-           
+            scores = data;           
     }});
 }

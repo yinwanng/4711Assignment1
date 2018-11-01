@@ -9,22 +9,11 @@ function createScore(){
     document.getElementById("lifeLabel").innerHTML ="Life: ";
     let spanScoreCount = document.createElement("span");
     spanScoreCount.textContent = "0";
-    // spanScoreCount.value ="0";
-    // spanScoreCount.style.outline = "none";
     spanScoreCount.name = "theScore";
 
     spanScoreCount.id = "scoreCount";
     let sScore = document.getElementById("scoreLabel");
     sScore.appendChild(spanScoreCount);
-
-    //--
-    // let outputScoreCount = document.createElement("output");
-    // outputScoreCount.textContent = "0";
-    // outputScoreCount.id = "scoreCount";
-    // let oScore = document.getElementById("scoreLabel");
-    // oScore.appendChild(outputScoreCount);
-    //--
-
 
     let spanLifeCount = document.createElement("span");
     spanLifeCount.textContent = "7";
@@ -54,21 +43,10 @@ function createButtons(){
 }
 
 function submitButton() {
-    // let container = document.getElementById("containerbox");
-    // let form = document.createElement("form");
     let submitButton = document.createElement("button");
     let submitText = document.createTextNode("Submit Score");
     submitButton.appendChild(submitText);
     submitButton.classList = ["btn btn-success"];
-    // submitButton.type ="submit";
-    // // form.id = "hangmanForm";
-    // // form.action = "/score";
-    // // form.method = "post";
-
-    // form.appendChild(submitButton);
-    // container.appendChild(form);
-
-    
     document.getElementById("centerButtons").appendChild(submitButton);
 }
 
@@ -80,18 +58,12 @@ function createForm(){
     form.method = "post";
 
     let input = document.createElement("input");
-    // input.innerHTML ="0";
-    // input.disabled = true;
+
     form.appendChild(input);
     input.name="pls";
     form.action = "/score";
     let button = document.createElement("button");
     form.appendChild(button);
     button.type="submit";
-
-
-
-
     container.appendChild(form);
-
 }

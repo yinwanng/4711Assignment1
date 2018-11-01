@@ -1,4 +1,4 @@
-#loginRegTitle {
+#welcomeGameMessage {
     text-align: center;
 }
 #container {
@@ -54,6 +54,10 @@
     font-weight: bold;
 }
 
+#hiddenScore{
+    display: none;
+}
+
 .characterToGuess {
     margin: 5px;
 }
@@ -62,10 +66,6 @@
     margin: 2px;
 }
 
-
-#hiddenScore{
-    display: none;
-}
 button {
     margin: 10px;
 }
