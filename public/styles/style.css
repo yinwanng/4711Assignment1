@@ -1,6 +1,7 @@
 #welcomeGameMessage {
     text-align: center;
 }
+
 #container {
     text-align: center;
 }
@@ -68,4 +69,8 @@
 
 button {
     margin: 10px;
+}
+
+#loginButton {
+    margin-right: 10px;
 }

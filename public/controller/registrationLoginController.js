@@ -2,3 +2,4 @@ window.onload = () => {
     setupLogin();
     setupRegistration();
 }
+
