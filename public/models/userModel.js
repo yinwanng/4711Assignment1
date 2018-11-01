@@ -17,7 +17,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    score: Number
 }); 
 
 UserSchema.statics.authenticate = (email, password, callback) => {

@@ -28,6 +28,7 @@ router.post('/score', function(req, res, next){
 
 // login and registration
 router.post('/', function(req, res, next){
+    // login: check if password is the same
     if(req.body.password !== req.body.passwordConfirmation) {
         var err = new Error('The passwords do not match.');
         err.status = 400;
@@ -35,24 +36,29 @@ router.post('/', function(req, res, next){
         return next(err);
     }
 
+    // register: check email, username, password, password confirmation
     if(req.body.email && req.body.username && req.body.password && req.body.passwordConfirmation) {
         var userData = {
             email: req.body.email,
             username: req.body.username,
-            password: req.body.password
+            password: req.body.password,
+            score: 0
         }
 
+        // create user account
         User.create(userData, function (error, user) {
             if(error) {
                 return next(error);
             } else {
-                req.session.userId = user._id;
-                return res.redirect('/user');
+                // req.session.userId = user._id;
+                return res.redirect('/');
             }
         })
+        // login: check email and password
     } else if (req.body.loginEmail && req.body.loginPassword) {
         console.log("loginemail: " + req.body.loginEmail);
         console.log("loginpassword: " + req.body.loginPassword);
+        // login: authenticate user
         User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
             if (error || !user) {
                 var err = new Error('The email or password is incorrect.');
@@ -86,13 +92,18 @@ router.get('/user', function(req, res, next) {
                 return res.sendFile(path.join(__dirname, '../public/hangman.html'));
             }
         }
-    })
+    });
 })
 
 // retrieve the user's username
 router.get('/information', function(req, res, next) {
     User.findById(req.session.userId).exec(function(error, user) {
-        res.send(user.username);
+        var userScore = {
+            username: user.username,
+            score: user.score
+        }
+        // console.log(user.score);
+        res.send(userScore);
     });
 });
 
