@@ -11,8 +11,6 @@ window.onload=function() {
 }
 
 function updateScore(scores) {
-
-//    console.log(scores.score);
     document.getElementById("scoreCount").innerHTML= scores.score; 
 }
 

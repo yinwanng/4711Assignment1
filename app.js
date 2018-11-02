@@ -6,6 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const expressValidator = require('express-validator');
 
 // connect to mongodb localhost for development/testing
 mongoose.connect("mongodb://localhost:27017/data", { useNewUrlParser: true })
@@ -21,6 +22,7 @@ mongoose.set('useCreateIndex', true);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressValidator());
 
 var routes = require('./routes/routers');
 

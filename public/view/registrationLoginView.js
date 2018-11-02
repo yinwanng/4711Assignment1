@@ -1,5 +1,4 @@
 setupLogin = () => {
-
     let container = document.getElementById("container");
     let form = document.createElement("form");
     form.method = "post";
@@ -25,7 +24,7 @@ setupLogin = () => {
     passwordLabel.appendChild(passwordText);
     passwordLabel.classList = ["col-form-label"];
     let passwordInput = document.createElement("input");
-    passwordInput.required = true;
+    // passwordInput.required = true;
     passwordInput.name = "loginPassword";
     passwordInput.classList = ["form-control"];
     passwordInput.placeholder = "Enter password";
@@ -77,6 +76,7 @@ setupRegistration = () => {
     emailInput.required = true;
     emailInput.name = "email";
     emailInput.classList = ["form-control"];
+    emailInput.placeholder = "Enter e-mail";
 
     let usernameLabel = document.createElement("label");
     usernameLabel.classList = ["col-form-label"];
@@ -86,6 +86,7 @@ setupRegistration = () => {
     usernameInput.required = true;
     usernameInput.name = "username";
     usernameInput.classList = ["form-control"];
+    usernameInput.placeholder = "Enter username";
 
     let passwordLabel = document.createElement("label");
     passwordLabel.classList = ["col-form-label"];
@@ -95,6 +96,7 @@ setupRegistration = () => {
     passwordInput.required = true;
     passwordInput.name = "password";
     passwordInput.classList = ["form-control"];
+    passwordInput.placeholder = "Enter password";
 
     // let passwordConfirmationLabel = document.createElement("label");
     // passwordConfirmationLabel.classList = ["col-form-label"];
@@ -131,4 +133,13 @@ setupRegistration = () => {
     loginMeButton.appendChild(loginMeText);
     loginMeButton.addEventListener("click", loginMeIn);
     form.appendChild(loginMeButton);
+}
+
+setupRequired = () => {
+    let container = document.getElementById("container");
+    let requiredMessageDiv = document.createElement("div");
+    requiredMessageDiv.classList = ["alert alert-info"];
+    requiredMessageDiv.id = "infoRequired";
+    requiredMessageDiv.style.display = "none";
+    container.appendChild(requiredMessageDiv);
 }

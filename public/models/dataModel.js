@@ -8,6 +8,7 @@ var lettersGuessedCorrect = [];                  // letters of the correct guess
 var currentWord;                                 // current word displayed
 var username;
 var scores;
+var errors;
 // the alphabet in an array
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
                 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 
