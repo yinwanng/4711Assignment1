@@ -96,14 +96,16 @@ setupRegistration = () => {
     passwordInput.name = "password";
     passwordInput.classList = ["form-control"];
 
-    let passwordConfirmationLabel = document.createElement("label");
-    passwordConfirmationLabel.classList = ["col-form-label"];
-    let passwordConfirmationText = document.createTextNode("Confirm Password");
-    passwordConfirmationLabel.appendChild(passwordConfirmationText);
-    let passwordConfirmationInput = document.createElement("input");
-    passwordConfirmationInput.required = true;
-    passwordConfirmationInput.name = "passwordConfirmation";
-    passwordConfirmationInput.classList = ["form-control"];
+    // let passwordConfirmationLabel = document.createElement("label");
+    // passwordConfirmationLabel.classList = ["col-form-label"];
+    // let passwordConfirmationText = document.createTextNode("Confirm Password");
+    // passwordConfirmationLabel.appendChild(passwordConfirmationText);
+    // let passwordConfirmationInput = document.createElement("input");
+    // passwordConfirmationInput.required = true;
+    // passwordConfirmationInput.name = "passwordConfirmation";
+    // passwordConfirmationInput.classList = ["form-control"];
+    // form.appendChild(passwordConfirmationLabel);
+    // form.appendChild(passwordConfirmationInput);
 
     form.appendChild(usernameLabel);
     form.appendChild(usernameInput);
@@ -111,8 +113,6 @@ setupRegistration = () => {
     form.appendChild(emailInput);
     form.appendChild(passwordLabel);
     form.appendChild(passwordInput);
-    form.appendChild(passwordConfirmationLabel);
-    form.appendChild(passwordConfirmationInput);
 
     let registerButton = document.createElement("button");
     let registerText = document.createTextNode("Register");

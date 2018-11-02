@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 var User = require('../public/models/userModel');
+const {check, validationResult, checkBody} = require('express-validator/check');
 
 // Routing    
 router.get('/', function(req, res){
@@ -23,16 +24,8 @@ router.post('/score', function(req, res, next){
 
 // login and registration
 router.post('/', function(req, res, next){
-    // login: check if password is the same
-    if(req.body.password !== req.body.passwordConfirmation) {
-        var err = new Error('The passwords do not match.');
-        err.status = 400;
-        res.send("The passwords do not match. Please try again.");
-        return next(err);
-    }
-
-    // register: check email, username, password, password confirmation
-    if(req.body.email && req.body.username && req.body.password && req.body.passwordConfirmation) {
+    // register: check email, username, password
+    if(req.body.email && req.body.username && req.body.password) {
         var userData = {
             email: req.body.email,
             username: req.body.username,
@@ -45,7 +38,6 @@ router.post('/', function(req, res, next){
             if(error) {
                 return next(error);
             } else {
-                // req.session.userId = user._id;
                 return res.redirect('/');
             }
         })
