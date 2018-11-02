@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 var User = require('../public/models/userModel');
-var Score = require('../public/models/scoreModel');
 
 // Routing    
 router.get('/', function(req, res){
@@ -12,18 +11,6 @@ router.get('/', function(req, res){
 // posting score with username to db
 router.post('/score', function(req, res, next){    
     User.findById(req.session.userId).exec(function(error, user) {       
-        // var scoreData = {  
-        //     username: user.username,
-        //     score: req.body.hiddenScoreValue,
-        // }
-        // Score.create(scoreData, function (error, score) {
-        //     if(error) {
-        //         return next(error);
-        //     } else {
-        //         return res.sendFile(path.join(__dirname, '../public/leaderboard.html'));
-        //     }
-        // })
-
         User.findOneAndUpdate({_id: req.session.userId}, { score: req.body.hiddenScoreValue }, ()=>{
             if(error) {
                 return next(error);
@@ -114,15 +101,6 @@ router.get('/information', function(req, res, next) {
         res.send(userScore);
     });
 });
-
-// retrieve all the scores in db
-// router.get('/score', function(req, res, next){   
-//     Score.find({}, (err, scores) => {
-//         res.json(scores);
-//    });
-// });
-
-
 
 router.get('/score', function(req, res, next){   
     User.find({},{}, { sort: { score: -1 }}, (err, users) => {
