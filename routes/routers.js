@@ -12,17 +12,25 @@ router.get('/', function(req, res){
 // posting score with username to db
 router.post('/score', function(req, res, next){    
     User.findById(req.session.userId).exec(function(error, user) {       
-        var scoreData = {  
-            username: user.username,
-            score: req.body.hiddenScoreValue,
-        }
-        Score.create(scoreData, function (error, score) {
+        // var scoreData = {  
+        //     username: user.username,
+        //     score: req.body.hiddenScoreValue,
+        // }
+        // Score.create(scoreData, function (error, score) {
+        //     if(error) {
+        //         return next(error);
+        //     } else {
+        //         return res.sendFile(path.join(__dirname, '../public/leaderboard.html'));
+        //     }
+        // })
+
+        User.findOneAndUpdate({_id: req.session.userId}, { score: req.body.hiddenScoreValue }, ()=>{
             if(error) {
                 return next(error);
             } else {
                 return res.sendFile(path.join(__dirname, '../public/leaderboard.html'));
             }
-        })
+        });
     })
 });
 
@@ -108,9 +116,17 @@ router.get('/information', function(req, res, next) {
 });
 
 // retrieve all the scores in db
+// router.get('/score', function(req, res, next){   
+//     Score.find({}, (err, scores) => {
+//         res.json(scores);
+//    });
+// });
+
+
+
 router.get('/score', function(req, res, next){   
-    Score.find({}, (err, scores) => {
-        res.json(scores);
+    User.find({}, (err, users) => {
+        res.json(users);
    });
 });
 
