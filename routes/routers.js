@@ -23,25 +23,25 @@ router.post('/score', function(req, res, next){
 
 // login and registration
 router.post('/', function(req, res, next){
-    req.checkBody('loginEmail', '- Please enter a valid email address.').isEmail();
-
-    var errors = req.validationErrors();
-    if(errors) {
-        req.session.errors = errors;
-        return res.redirect('/');
-    } else {
-        req.session.errors = null;
-    }
-
+    
     // register: check email, username, password
     if(req.body.email && req.body.username && req.body.password) {
+        req.checkBody('email', '- Please enter a valid email address for registration.').isEmail();
+        var errors = req.validationErrors();
+        if(errors) {
+            req.session.errors = errors;
+            return res.redirect('/');
+        } else {
+            req.session.errors = null;
+        }
+
+
         var userData = {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
             score: 0
         }
-
         // create user account
         User.create(userData, function (error, user) {
             if(error) {
@@ -52,6 +52,14 @@ router.post('/', function(req, res, next){
         })
         // login: check email and password
     } else if (req.body.loginEmail && req.body.loginPassword) {
+        req.checkBody('loginEmail', '- Please enter a valid email address.').isEmail();
+        var errors = req.validationErrors();
+        if(errors) {
+            req.session.errors = errors;
+            return res.redirect('/');
+        } else {
+            req.session.errors = null;
+        }
         console.log("loginemail: " + req.body.loginEmail);
         console.log("loginpassword: " + req.body.loginPassword);
         // login: authenticate user
