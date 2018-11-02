@@ -65,10 +65,6 @@ router.post('/', function(req, res, next){
         // login: authenticate user
         User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
             if (error || !user) {
-                // var err = new Error('The email or password is incorrect.');
-                // err.status = 401;
-                // res.send("<h1>The email or password is incorrect. Please go back and try again.</h1>");
-                // return next(err);
                 req.session.errors = [{msg: "The email or password is incorrect."}];
                 return res.redirect('/');
             } else {
@@ -130,47 +126,6 @@ router.get('/logout', function (req, res) {
 router.get('/check', function (req, res) {
     if(req.session.errors) {
         res.send(req.session.errors);
-    }
-});
-
-
-// login and registration
-router.post('/2', function(req, res, next){
-   
-    if(req.body.email && req.body.username && req.body.password) {
-        var userData = {
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password
-        }
-
-        User.create(userData, function (error, user) {
-            if(error) {
-                return next(error);
-            } else {
-                req.session.userId = user._id;
-                return res.redirect('/user');
-            }
-        })
-    } else if (req.body.loginEmail && req.body.loginPassword) {
-        console.log("loginemail: " + req.body.loginEmail);
-        console.log("loginpassword: " + req.body.loginPassword);
-        User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
-            if (error || !user) {
-                var err = new Error('The email or password is incorrect.');
-                err.status = 401;
-                //
-                res.send("The email or password is incorrect. Please try again");
-                return next(err);
-            } else {
-                req.session.userId = user._id;
-                return res.redirect('/user');
-            }
-        });
-    } else {
-        var err = new Error('All fields are quired.');
-        err.status = 400;
-        return next(err);
     }
 });
 

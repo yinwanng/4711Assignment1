@@ -4,7 +4,6 @@ function createWelcomeMessage(){
 }
 
 function createScore(){
-    $("#hiddenScore").val("0");
     document.getElementById("scoreLabel").innerHTML ="Score: ";
     document.getElementById("lifeLabel").innerHTML ="Life: ";
     let spanScoreCount = document.createElement("span");

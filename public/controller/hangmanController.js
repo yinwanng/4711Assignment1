@@ -12,6 +12,8 @@ window.onload=function() {
 
 function updateScore(scores) {
     document.getElementById("scoreCount").innerHTML= scores.score; 
+    $("#hiddenScore").val(scores.score);
+    scoreCount = scores.score;
 }
 
 // The letter clicked is being guessed if it is in the word
@@ -69,12 +71,14 @@ function decrementLifeScore() {
 // Add one point to the Score Count
 function incrementScore() {
     document.getElementById("scoreCount").innerHTML = ++scoreCount;
+    console.log("incremented:" + scoreCount);
     $("#hiddenScore").val(scoreCount);
 }
 
 // Minus one point on the Score Count
 function decrementScore() {
     document.getElementById("scoreCount").innerHTML = --scoreCount;
+    console.log("decremented:" + scoreCount);
     $("#hiddenScore").val(scoreCount);
 }
 
