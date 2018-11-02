@@ -125,7 +125,7 @@ router.get('/information', function(req, res, next) {
 
 
 router.get('/score', function(req, res, next){   
-    User.find({}, (err, users) => {
+    User.find({},{}, { sort: { score: -1 }}, (err, users) => {
         res.json(users);
    });
 });
