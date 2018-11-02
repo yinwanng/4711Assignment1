@@ -23,7 +23,6 @@ router.post('/score', function(req, res, next){
 
 // login and registration
 router.post('/', function(req, res, next){
-    
     // register: check email, username, password
     if(req.body.email && req.body.username && req.body.password) {
         req.checkBody('email', '- Please enter a valid email address for registration.').isEmail();
@@ -35,21 +34,22 @@ router.post('/', function(req, res, next){
             req.session.errors = null;
         }
 
-
         var userData = {
             email: req.body.email,
             username: req.body.username,
             password: req.body.password,
-            score: 0
+            score: "0"
         }
         // create user account
-        User.create(userData, function (error, user) {
+        User.create(userData, function (error) {
             if(error) {
-                return next(error);
+                req.session.errors = [{msg: "The username or e-mail has already been taken."}];
+                return res.redirect('/');
             } else {
                 return res.redirect('/');
             }
-        })
+        });
+        
         // login: check email and password
     } else if (req.body.loginEmail && req.body.loginPassword) {
         req.checkBody('loginEmail', '- Please enter a valid email address.').isEmail();
@@ -130,6 +130,47 @@ router.get('/logout', function (req, res) {
 router.get('/check', function (req, res) {
     if(req.session.errors) {
         res.send(req.session.errors);
+    }
+});
+
+
+// login and registration
+router.post('/2', function(req, res, next){
+   
+    if(req.body.email && req.body.username && req.body.password) {
+        var userData = {
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        }
+
+        User.create(userData, function (error, user) {
+            if(error) {
+                return next(error);
+            } else {
+                req.session.userId = user._id;
+                return res.redirect('/user');
+            }
+        })
+    } else if (req.body.loginEmail && req.body.loginPassword) {
+        console.log("loginemail: " + req.body.loginEmail);
+        console.log("loginpassword: " + req.body.loginPassword);
+        User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
+            if (error || !user) {
+                var err = new Error('The email or password is incorrect.');
+                err.status = 401;
+                //
+                res.send("The email or password is incorrect. Please try again");
+                return next(err);
+            } else {
+                req.session.userId = user._id;
+                return res.redirect('/user');
+            }
+        });
+    } else {
+        var err = new Error('All fields are quired.');
+        err.status = 400;
+        return next(err);
     }
 });
 
