@@ -44,7 +44,7 @@ UserSchema.statics.authenticate = (email, password, callback) => {
 
 // hash password
 UserSchema.pre('save', function(next) {
-    var user = this;
+    let user = this;
     bcrypt.hash(user.password, 10, function(err, hash) {
         if(err) {
             return next(err);
@@ -54,5 +54,5 @@ UserSchema.pre('save', function(next) {
     })
 })
 
-var User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 module.exports = User;

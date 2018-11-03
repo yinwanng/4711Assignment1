@@ -24,18 +24,18 @@ function createScore(){
 // Create buttons for the alphabet keys and restart game
 function createButtons(){
     // alphabet buttons  
-   for (var i = 0; i < alphabet.length; i++) {
-    var button = document.createElement("button");
+   for (let i = 0; i < alphabet.length; i++) {
+    let button = document.createElement("button");
     button.classList = ['keyboard btn btn-primary btn-lg'];
     button.addEventListener("click", letterClicked);
-    var text = document.createTextNode(alphabet[i]);
+    let text = document.createTextNode(alphabet[i]);
     button.appendChild(text);
     document.getElementById("hangmanForm").appendChild(button);
    }
    // restart button
-   var restartButton = document.createElement("button");
+   let restartButton = document.createElement("button");
    restartButton.classList = ['btn btn-warning'];
-   var text = document.createTextNode("Restart Game");
+   let text = document.createTextNode("Restart Game");
    restartButton.appendChild(text);
    document.getElementById("centerButtons").appendChild(restartButton);  
    restartButton.addEventListener("click", restartGame);

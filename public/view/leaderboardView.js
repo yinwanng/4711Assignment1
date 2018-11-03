@@ -1,5 +1,5 @@
 displayInformation = (scores) => {
-    var tableData = "<tr><td>#</td><td>Username</td><td>Score</td>";
+    let tableData = "<tr><td>#</td><td>Username</td><td>Score</td>";
     let rank = 1;                   
     scores.forEach(d => {
         // console.log(`${d.username}, ${d.score}`);   

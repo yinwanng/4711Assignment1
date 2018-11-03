@@ -50,7 +50,6 @@ randomDictionaryWord = () => {
 populateWord = () => {
     let wordLength = guessWord.length;
     let guessWordElement = document.getElementById("guessWord");
-
     for(let i = 0; i < wordLength; i++) {
         let span = document.createElement("span");
         span.id = ['characterToGuess' + i];
