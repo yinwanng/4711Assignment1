@@ -30,7 +30,7 @@ let loginMeIn = () => {
 // Retrieve validation errors
 let retrieveErrors = () => {
     return $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: "/check",
         contentType: "application/json",
         success: function(data){

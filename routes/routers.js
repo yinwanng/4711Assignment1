@@ -126,12 +126,10 @@ router.get('/logout', function (req, res) {
 });
 
 // check validation errors received
-router.get('/check', function (req, res) {
+router.post('/check', function (req, res) {
     if(req.session.errors) {
         res.send(req.session.errors);
-    }
-    res.send(req.session.errors);
-    
+    }    
 });
 
 module.exports = router;
