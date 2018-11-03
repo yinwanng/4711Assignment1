@@ -14,7 +14,7 @@ const productionConnectionURL = "mongodb://admin:admin@cluster0-shard-00-00-ddn3
 // connect to mongodb 
 // use developmentConnectionURL for development/testing environment
 // use productionConnectionURL for production environment
-mongoose.connect(developmentConnectionURL, { useNewUrlParser: true })
+mongoose.connect(productionConnectionURL, { useNewUrlParser: true })
 .then(()=> console.log("Connected to MongoDB...."))
 .catch(err => console.error('Could not connect to MongoDB...'));
 
