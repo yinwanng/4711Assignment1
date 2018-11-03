@@ -60,8 +60,7 @@ router.post('/', function(req, res, next){
         } else {
             req.session.errors = null;
         }
-        console.log("loginemail: " + req.body.loginEmail);
-        console.log("loginpassword: " + req.body.loginPassword);
+ 
         // login: authenticate user
         User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
             if (error || !user) {

@@ -21,7 +21,6 @@
     "body-parser": "^1.18.3",
     "connect-mongo": "^2.0.1",
     "express": "^4.16.4",
-    "express-hbs": "^1.0.4",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.0",
     "mongoose": "^5.3.7",

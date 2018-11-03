@@ -8,8 +8,10 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const expressValidator = require('express-validator');
 
+const developmentConnectionURL = "mongodb://localhost:27017/data";
+const productionConnectionURL = "mongodb://admin:admin@cluster0-shard-00-00-ddn31.mongodb.net:27017,cluster0-shard-00-01-ddn31.mongodb.net:27017,cluster0-shard-00-02-ddn31.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
 // connect to mongodb localhost for development/testing
-mongoose.connect("mongodb://localhost:27017/data", { useNewUrlParser: true })
+mongoose.connect(developmentConnectionURL, { useNewUrlParser: true })
 .then(()=> console.log("Connected to MongoDB...."))
 .catch(err => console.error('Could not connect to MongoDB...'));
 mongoose.set('useCreateIndex', true);
