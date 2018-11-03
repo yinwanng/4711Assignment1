@@ -62,7 +62,6 @@ setupRegistration = () => {
     form.id = "registrationForm";
     form.style.display = "none";
     
-
     let br = document.createElement("br");
     let br2 = document.createElement("br");
 

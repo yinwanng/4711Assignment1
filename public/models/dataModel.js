@@ -1,6 +1,3 @@
-var welcomeTitle = "Hangman Game";               // welcome message
-var winMessage = "You got it right!";            // display win message
-var loseMessage = "Game Over!";                  // display lose message
 var lifeCount = 7;                               // number of guesses limit
 var scoreCount = 0;                              // score of the game
 var guessWord;                                   // word to be guessed

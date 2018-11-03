@@ -30,6 +30,7 @@ function createButtons(){
     button.addEventListener("click", letterClicked);
     let text = document.createTextNode(alphabet[i]);
     button.appendChild(text);
+    button.id = alphabet[i];
     document.getElementById("hangmanForm").appendChild(button);
    }
    // restart button

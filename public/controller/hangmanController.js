@@ -18,7 +18,7 @@ updateScore = (scores) => {
 // The letter clicked is being guessed if it is in the word
 letterClicked = () => {
     event.preventDefault();
-    let letter = this.innerHTML;  
+    let letter = event.target.innerHTML;  
     // iterate each letter in the word 
     for(let i = 0; i < guessWord.length; i++) { 
         // found character match
@@ -33,8 +33,8 @@ letterClicked = () => {
         decrementLifeScore();
         decrementScore();
     }
-    this.disabled = true;
-    this.classList = ['keyboard btn btn-default btn-lg'];
+    document.getElementById(letter).disabled = true;
+    document.getElementById(letter).classList = ['keyboard btn btn-default btn-lg'];
     checkIfGameOver();
     checkIfWordCompleted();
 }
