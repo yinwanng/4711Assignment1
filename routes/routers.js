@@ -130,6 +130,7 @@ router.get('/check', function (req, res) {
     if(req.session.errors) {
         res.send(req.session.errors);
     }
+    res.json('success');
 });
 
 module.exports = router;
