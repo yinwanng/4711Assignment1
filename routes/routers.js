@@ -46,6 +46,7 @@ router.post('/', function(req, res, next){
                 req.session.errors = [{msg: "- The username or e-mail has already been taken."}];
                 return res.redirect('/');
             } else {
+                req.session.errors = [{msg: "- Account created successfully."}];
                 return res.redirect('/');
             }
         });
