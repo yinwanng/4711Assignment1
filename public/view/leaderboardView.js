@@ -1,18 +1,20 @@
+// Displaying the information of the rank, username, and score 
 let displayInformation = (scores) => {
     let tableData = "<tr><th>Rank #</th><th>Username</th><th>Score</th>";
     let rank = 1;                   
-    scores.forEach(d => {
-        // console.log(`${d.username}, ${d.score}`);   
+    scores.forEach(d => {  
         tableData += "<tr><td>" + rank + "</td><td>" + `${d.username}` + "</td><td>" + `${d.score}` + "</td></tr>";
         rank++;
     });
     $("#rankTable").append(tableData);  
 }
 
+// Formatting the leaderboard table
 let formatTables = () => {
     $("#rankTable td").css("padding-right", "100px");
 }
 
+// Creating the nav for the leaderboard page
 let createLeaderboardNav = () => {
     let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
         '<a class="navbar-brand"></a>' +
@@ -36,6 +38,7 @@ let createLeaderboardNav = () => {
     $('body').append(navHTML);
 }
 
+// Create the container of the leaderboard
 let createLeaderboardContainer = () => {
     let containHTML = ' <div class="container">' +
         '<div id="rankContainer">' +
