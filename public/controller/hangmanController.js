@@ -11,10 +11,12 @@ window.onload=function() {
     retrieveUsername().then(updateScore);
 }
 
+// Instantiate the user object
 init = () => {
     user = new User("", 0);
 }
 
+// Updating the score
 let updateScore = (scores) => {
     document.getElementById("scoreCount").innerHTML = scores.score; 
     $("#hiddenScore").val(scores.score);
