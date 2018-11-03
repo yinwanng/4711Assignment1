@@ -59,6 +59,9 @@
     display: none;
 }
 
+#loginButton, #registerButton {
+    margin-right: 10px;
+}
 .characterToGuess {
     margin: 5px;
 }
@@ -69,8 +72,4 @@
 
 button {
     margin: 10px;
-}
-
-#loginButton, #registerButton {
-    margin-right: 10px;
 }
