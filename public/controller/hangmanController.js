@@ -1,6 +1,7 @@
 // Execute functions when page is loaded
 window.onload=function() {
-    createWelcomeMessage();
+    createHangmanNavBar();
+    createHangmanContainer();
     createScore();
     createButtons();
     randomDictionaryWord();
@@ -10,10 +11,12 @@ window.onload=function() {
 }
 
 updateScore = (scores) => {
-    document.getElementById("scoreCount").innerHTML= scores.score; 
+    document.getElementById("scoreCount").innerHTML = scores.score; 
     $("#hiddenScore").val(scores.score);
     scoreCount = scores.score;
+    document.getElementById("welcomeMessage").innerHTML = msgToUser + scores.username;
 }
+
 
 // The letter clicked is being guessed if it is in the word
 letterClicked = () => {

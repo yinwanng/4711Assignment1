@@ -1,9 +1,4 @@
-// Welcome message on screen
-function createWelcomeMessage(){
-    document.getElementById("welcomeMessage").innerHTML = welcomeTitle;
-}
-
-function createScore(){
+createScore = () => {
     document.getElementById("scoreLabel").innerHTML ="Score: ";
     document.getElementById("lifeLabel").innerHTML ="Life: ";
     let spanScoreCount = document.createElement("span");
@@ -22,7 +17,7 @@ function createScore(){
 }
 
 // Create buttons for the alphabet keys and restart game
-function createButtons(){
+createButtons = () => {
     // alphabet buttons  
    for (let i = 0; i < alphabet.length; i++) {
     let button = document.createElement("button");
@@ -42,7 +37,7 @@ function createButtons(){
    restartButton.addEventListener("click", restartGame);
 }
 
-function submitButton() {
+submitButton = () => {
     let submitButton = document.createElement("button");
     let submitText = document.createTextNode("Submit Score");
     submitButton.appendChild(submitText);
@@ -50,7 +45,7 @@ function submitButton() {
     document.getElementById("centerButtons").appendChild(submitButton);
 }
 
-function createForm(){
+createForm = () =>{
     let container = document.getElementById("containerbox");
     let form = document.createElement("form");
     form.id="formTest";
@@ -65,4 +60,47 @@ function createForm(){
     form.appendChild(button);
     button.type="submit";
     container.appendChild(form);
+}
+
+
+createHangmanNavBar = () => {
+    console.log("appending to hangman");
+    let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
+        '<a class="navbar-brand"></a>' +
+        '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">' +
+        '<span class="navbar-toggler-icon"></span>' +
+        '</button>' +
+        '<div class="collapse navbar-collapse" id="navbarNav">' +
+        '<ul class="navbar-nav">' +
+        '<li class="nav-item active">' +
+        '<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>' +
+        '</li>' +
+        '<li class="nav-item">' +
+        '<a class="nav-link" href="leaderboard.html">Leaderboard</a>' +
+        '</li>' +
+        '<li class="nav-item">'+
+    '<a class="nav-link" href="/logout">Log Out</a>' +
+    '</li>' +
+    '</ul>' +
+    '</div>' +
+    '</nav>';
+    $('body').append(navHTML);
+}
+
+createHangmanContainer = () => {
+    let containHTML = '<div class="container-fluid">' +
+        '<h1 id="welcomeMessage"></h1>' +
+        '<div id="messageResult"></div>' +
+        '</div>' +
+        '<div class="container" id="containerbox">' +
+        '<form action="/score" id="hangmanForm" method="post">' +
+        '<div id="scoreLabel"></div>' +
+        '<div id="lifeLabel"></div>' +
+        '<h5 id="definition"></h5>' +
+        '<div id="guessWord"></div>' +
+        '<div id="centerButtons"></div>' +
+        '<input type="text" name="hiddenScoreValue" id="hiddenScore">' +
+        '</form>' +
+        '</div>';
+    $('body').append(containHTML);
 }

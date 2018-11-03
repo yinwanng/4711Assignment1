@@ -1,4 +1,6 @@
 window.onload = () => {
+    createHomeNavBar();
+    createRegLogContainer();
     setupWelcomeMessage();
     setupRequired();
     setupLogin();
