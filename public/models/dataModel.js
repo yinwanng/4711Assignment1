@@ -3,10 +3,11 @@ var scoreCount = 0;                              // score of the game
 var guessWord;                                   // word to be guessed
 var lettersGuessedCorrect = [];                  // letters of the correct guesses
 var currentWord;                                 // current word displayed
-var username;
-var scores;
-var errors;
-var user;
+var username;                                    // username
+var scores;                                      // scores
+var errors;                                      // validation errosr
+var user;                                        // user object
+
 // the alphabet in an array
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
                 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 
@@ -52,7 +53,6 @@ retrieveUsername = () => {
     return $.ajax({
         type: 'GET',
         url: "/information",
-        // url: "https://hangman4711.azurewebsites.net/information",
         contentType: "application/json",
         success: function(data) {
             username = data;
@@ -65,7 +65,6 @@ retrieveScores = () => {
    return $.ajax({
         type: 'GET',
         url: "/score",
-        // url: "https://hangman4711.azurewebsites.net/score",
         contentType: "application/json",
         success: function(data){
             scores = data;           
