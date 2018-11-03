@@ -8,7 +8,7 @@ window.onload = () => {
     retrieveErrors().then(displayErrors);
 }
 
-signMeUp = () => {
+let signMeUp = () => {
     event.preventDefault();
     $('#loginForm').hide();
     $('#loginHeader').hide();
@@ -16,7 +16,7 @@ signMeUp = () => {
     $('#registrationHeader').show();
 }
 
-loginMeIn = () => {
+let loginMeIn = () => {
     event.preventDefault();
     $('#registrationForm').hide();
     $('#registrationHeader').hide();
@@ -24,7 +24,7 @@ loginMeIn = () => {
     $('#loginHeader').show();
 }
 
-retrieveErrors = () => {
+let retrieveErrors = () => {
     return $.ajax({
         type: 'GET',
         url: "/check",
@@ -34,7 +34,7 @@ retrieveErrors = () => {
     }});
 }
 
-displayErrors = () => {
+let displayErrors = () => {
     if(errors) {
         $('#infoRequired').show();
         document.getElementById("infoRequired").innerHTML = errors[0].msg;
@@ -47,6 +47,6 @@ displayErrors = () => {
     }
 }
 
-setupWelcomeMessage = () => {
+let setupWelcomeMessage = () => {
     $('#welcomeGameMessage').text(msgWelcome);
 }

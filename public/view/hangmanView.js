@@ -1,4 +1,4 @@
-createScore = () => {
+let createScore = () => {
     document.getElementById("scoreLabel").innerHTML ="Score: ";
     document.getElementById("lifeLabel").innerHTML ="Life: ";
     let spanScoreCount = document.createElement("span");
@@ -17,7 +17,7 @@ createScore = () => {
 }
 
 // Create buttons for the alphabet keys and restart game
-createButtons = () => {
+let createButtons = () => {
     // alphabet buttons  
    for (let i = 0; i < alphabet.length; i++) {
     let button = document.createElement("button");
@@ -37,7 +37,7 @@ createButtons = () => {
    restartButton.addEventListener("click", restartGame);
 }
 
-submitButton = () => {
+let submitButton = () => {
     let submitButton = document.createElement("button");
     let submitText = document.createTextNode("Submit Score");
     submitButton.appendChild(submitText);
@@ -45,7 +45,7 @@ submitButton = () => {
     document.getElementById("centerButtons").appendChild(submitButton);
 }
 
-createForm = () =>{
+let createForm = () =>{
     let container = document.getElementById("containerbox");
     let form = document.createElement("form");
     form.id="formTest";
@@ -62,8 +62,7 @@ createForm = () =>{
     container.appendChild(form);
 }
 
-
-createHangmanNavBar = () => {
+let createHangmanNavBar = () => {
     console.log("appending to hangman");
     let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
         '<a class="navbar-brand"></a>' +
@@ -87,7 +86,7 @@ createHangmanNavBar = () => {
     $('body').append(navHTML);
 }
 
-createHangmanContainer = () => {
+let createHangmanContainer = () => {
     let containHTML = '<div class="container-fluid">' +
         '<h1 id="welcomeMessage"></h1>' +
         '<div id="messageResult"></div>' +

@@ -1,4 +1,4 @@
-displayInformation = (scores) => {
+let displayInformation = (scores) => {
     let tableData = "<tr><th>Rank #</th><th>Username</th><th>Score</th>";
     let rank = 1;                   
     scores.forEach(d => {
@@ -9,11 +9,11 @@ displayInformation = (scores) => {
     $("#rankTable").append(tableData);  
 }
 
-formatTables = () => {
+let formatTables = () => {
     $("#rankTable td").css("padding-right", "100px");
 }
 
-createLeaderboardNav = () => {
+let createLeaderboardNav = () => {
     let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
         '<a class="navbar-brand"></a>' +
         '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">' +
@@ -36,7 +36,7 @@ createLeaderboardNav = () => {
     $('body').append(navHTML);
 }
 
-createLeaderboardContainer = () => {
+let createLeaderboardContainer = () => {
     let containHTML = ' <div class="container">' +
         '<div id="rankContainer">' +
         '<h1>Leaderboard - Top 10</h1>' +

@@ -1,4 +1,4 @@
-setupLogin = () => {
+let setupLogin = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
     form.method = "post";
@@ -67,7 +67,7 @@ setupLogin = () => {
     
 }
 
-setupRegistration = () => {
+let setupRegistration = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
     form.method = "post";
@@ -137,7 +137,7 @@ setupRegistration = () => {
     form.appendChild(loginMeButton);
 }
 
-setupRequired = () => {
+let setupRequired = () => {
     let container = document.getElementById("container");
     let requiredMessageDiv = document.createElement("div");
     requiredMessageDiv.classList = ["alert alert-info"];
@@ -146,7 +146,7 @@ setupRequired = () => {
     container.appendChild(requiredMessageDiv);
 }
 
-createHomeNavBar = () => {
+let createHomeNavBar = () => {
     let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
         '<a class="navbar-brand"></a>' +
         '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">' +
@@ -164,7 +164,7 @@ createHomeNavBar = () => {
     $('body').append(navHTML);
 }
 
-createRegLogContainer = () => {
+let createRegLogContainer = () => {
     let containHTML = '<h1 id="welcomeGameMessage"></h1>' +
         '<br>' +
         '<div id="container" class="container">' +

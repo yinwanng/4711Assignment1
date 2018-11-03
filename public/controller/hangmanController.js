@@ -10,7 +10,7 @@ window.onload=function() {
     retrieveUsername().then(updateScore);
 }
 
-updateScore = (scores) => {
+let updateScore = (scores) => {
     document.getElementById("scoreCount").innerHTML = scores.score; 
     $("#hiddenScore").val(scores.score);
     scoreCount = scores.score;
@@ -19,7 +19,7 @@ updateScore = (scores) => {
 
 
 // The letter clicked is being guessed if it is in the word
-letterClicked = () => {
+let letterClicked = () => {
     event.preventDefault();
     let letter = event.target.innerHTML;  
     // iterate each letter in the word 
@@ -43,14 +43,14 @@ letterClicked = () => {
 }
 
 // Generate a random word to be guessed
-randomDictionaryWord = () => {
+let randomDictionaryWord = () => {
     let randomNumber = Math.floor(Math.random() * 9); // Random 0 to 9 
     document.getElementById("definition").innerHTML = dictionary[randomNumber].definition;
     guessWord = dictionary[randomNumber].word;
 }
 
 // Display the random word on the page
-populateWord = () => {
+let populateWord = () => {
     let wordLength = guessWord.length;
     let guessWordElement = document.getElementById("guessWord");
     for(let i = 0; i < wordLength; i++) {
@@ -63,46 +63,46 @@ populateWord = () => {
 }
 
 // Minus one point on the Life Count
-decrementLifeScore = () => {
+let decrementLifeScore = () => {
     document.getElementById("lifeCount").innerHTML = --lifeCount;
 }
 
 // Add one point to the Score Count
-incrementScore = () => {
+let incrementScore = () => {
     document.getElementById("scoreCount").innerHTML = ++scoreCount;
     $("#hiddenScore").val(scoreCount);
 }
 
 // Minus one point on the Score Count
-decrementScore = () => {
+let decrementScore = () => {
     document.getElementById("scoreCount").innerHTML = --scoreCount;
     $("#hiddenScore").val(scoreCount);
 }
 
 // Display the letter if there is a match
-displayLetter = (index, letter) => {
+let displayLetter = (index, letter) => {
     document.getElementById("characterToGuess" + index).innerHTML = letter;
 }
 
 // Clearing the guess word on page and letters guessed letters in the array
-clearWord = () => {
+let clearWord = () => {
     document.getElementById("guessWord").innerHTML = "";
     lettersGuessedCorrect = [];
 }
 
 // Clearing the message result on page
-clearMessageResult = () => {
+let clearMessageResult = () => {
     document.getElementById("messageResult").innerHTML = "";
 }
 
 // Resetting the life count back to 7
-resetLifeCount = () => {
+let resetLifeCount = () => {
     lifeCount = 7;
     document.getElementById("lifeCount").innerHTML = lifeCount;   
 }
 
 // Reset all the buttons that were disabled back to enabled
-resetButtons = () =>{
+let resetButtons = () =>{
     let keys = document.getElementsByClassName("keyboard").length;
     for(let i = 0; i < keys; i++) {
         document.getElementsByClassName("keyboard")[i].disabled = false;
@@ -111,13 +111,13 @@ resetButtons = () =>{
 }
 
 // Restarting the game by continueing
-restartGame = () => {
+let restartGame = () => {
     event.preventDefault();
     continuePlaying();
 }
 
 // Reset the game if wanting the game to continue with next word to guess
-continuePlaying = () => {
+let continuePlaying = () => {
     clearWord();
     clearMessageResult();
     resetLifeCount();
@@ -127,7 +127,7 @@ continuePlaying = () => {
 }
 
 // Display a game over message if life count reached to 0 and disable all buttons
-checkIfGameOver = () => {
+let checkIfGameOver = () => {
     if(lifeCount == 0) {
         document.getElementById("messageResult").innerHTML = loseMessage;
         disableAllButtons();
@@ -135,7 +135,7 @@ checkIfGameOver = () => {
 }
 
 // Check if all the letters are a match for the guess word and display a congratulation message
-checkIfWordCompleted = () => {
+let checkIfWordCompleted = () => {
     currentWord = "";
     // retrieves the current word that is being displayed
     for(let i = 0; i < guessWord.length; i++){
@@ -149,7 +149,7 @@ checkIfWordCompleted = () => {
 }
 
 // Disables all the buttons
-disableAllButtons = () => {
+let disableAllButtons = () => {
     let keys = document.getElementsByClassName("keyboard").length;
     for(let i = 0; i < keys; i++) {
         document.getElementsByClassName("keyboard")[i].disabled = true;
