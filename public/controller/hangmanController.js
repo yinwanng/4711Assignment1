@@ -1,5 +1,6 @@
 // Execute functions when page is loaded
 window.onload=function() {
+    init();
     createHangmanNavBar();
     createHangmanContainer();
     createScore();
@@ -10,13 +11,18 @@ window.onload=function() {
     retrieveUsername().then(updateScore);
 }
 
+init = () => {
+    user = new User("", 0);
+}
+
 let updateScore = (scores) => {
     document.getElementById("scoreCount").innerHTML = scores.score; 
     $("#hiddenScore").val(scores.score);
     scoreCount = scores.score;
     document.getElementById("welcomeMessage").innerHTML = msgToUser + scores.username;
+    user.setScore(scores.score);
+    user.setUsername(scores.username);
 }
-
 
 // The letter clicked is being guessed if it is in the word
 let letterClicked = () => {
