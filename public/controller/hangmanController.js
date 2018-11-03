@@ -1,5 +1,5 @@
-// Execute functions when page is loaded
-window.onload=function() {
+// Execute functions when hangman page is loaded
+window.onload = () => {
     init();
     createHangmanNavBar();
     createHangmanContainer();
