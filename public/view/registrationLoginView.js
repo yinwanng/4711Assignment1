@@ -1,3 +1,4 @@
+// Setting up the login form page to the hangman game
 let setupLogin = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
@@ -20,7 +21,6 @@ let setupLogin = () => {
     registrationHeader.style.display = "none";
     registrationHeader.appendChild(registrationMsgText);
     container.appendChild(registrationHeader);
-
     container.appendChild(form);
     
     let emailLabel = document.createElement("label");
@@ -64,9 +64,9 @@ let setupLogin = () => {
     signUpButton.appendChild(signUpText);
     signUpButton.addEventListener("click", signMeUp);
     form.appendChild(signUpButton);
-    
 }
 
+// Setting up the registration page for the hangman game
 let setupRegistration = () => {
     let container = document.getElementById("container");
     let form = document.createElement("form");
@@ -78,7 +78,6 @@ let setupRegistration = () => {
     
     let br = document.createElement("br");
     let br2 = document.createElement("br");
-
     container.appendChild(form);
 
     let emailLabel = document.createElement("label");
@@ -127,8 +126,6 @@ let setupRegistration = () => {
     form.appendChild(br2);
     form.appendChild(registerButton);
 
-
-
     let loginMeButton = document.createElement("button");
     loginMeButton.classList = ["btn btn-secondary"];
     let loginMeText = document.createTextNode("Have an account already? Click here!");
@@ -137,6 +134,7 @@ let setupRegistration = () => {
     form.appendChild(loginMeButton);
 }
 
+// Display what is required for validation if occured
 let setupRequired = () => {
     let container = document.getElementById("container");
     let requiredMessageDiv = document.createElement("div");
@@ -146,6 +144,7 @@ let setupRequired = () => {
     container.appendChild(requiredMessageDiv);
 }
 
+// Create the nav bar on the registration page
 let createHomeNavBar = () => {
     let navHTML = '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
         '<a class="navbar-brand"></a>' +
@@ -164,6 +163,7 @@ let createHomeNavBar = () => {
     $('body').append(navHTML);
 }
 
+// Create the container for the registration/login page view
 let createRegLogContainer = () => {
     let containHTML = '<h1 id="welcomeGameMessage"></h1>' +
         '<br>' +
