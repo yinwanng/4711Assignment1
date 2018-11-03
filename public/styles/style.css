@@ -56,7 +56,7 @@
 }
 
 #hiddenScore{
-    /* display: none; */
+    display: none;
 }
 
 .characterToGuess {

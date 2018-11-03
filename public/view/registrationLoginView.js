@@ -24,7 +24,7 @@ setupLogin = () => {
     passwordLabel.appendChild(passwordText);
     passwordLabel.classList = ["col-form-label"];
     let passwordInput = document.createElement("input");
-    // passwordInput.required = true;
+    passwordInput.required = true;
     passwordInput.name = "loginPassword";
     passwordInput.classList = ["form-control"];
     passwordInput.placeholder = "Enter password";

@@ -1,4 +1,5 @@
 window.onload = () => {
+    setupWelcomeMessage();
     setupRequired();
     setupLogin();
     setupRegistration();
@@ -31,5 +32,15 @@ displayErrors = () => {
     if(errors) {
         $('#infoRequired').show();
         document.getElementById("infoRequired").innerHTML = errors[0].msg;
+
+        if(errors[0].msg == msgEnterValidEmailRegistration
+        || errors[0].msg == msgUsernameOrEmailTaken) {
+            $('#loginForm').hide();
+            $('#registrationForm').show();
+        }
     }
+}
+
+setupWelcomeMessage = () => {
+    $('#welcomeGameMessage').text(msgWelcome);
 }

@@ -43,7 +43,7 @@ router.post('/', function(req, res, next){
         // create user account
         User.create(userData, function (error) {
             if(error) {
-                req.session.errors = [{msg: "The username or e-mail has already been taken."}];
+                req.session.errors = [{msg: "- The username or e-mail has already been taken."}];
                 return res.redirect('/');
             } else {
                 return res.redirect('/');
@@ -65,7 +65,7 @@ router.post('/', function(req, res, next){
         // login: authenticate user
         User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
             if (error || !user) {
-                req.session.errors = [{msg: "The email or password is incorrect."}];
+                req.session.errors = [{msg: "- The email or password is incorrect."}];
                 return res.redirect('/');
             } else {
                 req.session.userId = user._id;
@@ -106,9 +106,9 @@ router.get('/information', function(req, res, next) {
 });
 
 router.get('/score', function(req, res, next){   
-    User.find({},{}, { sort: { score: -1 }}, (err, users) => {
+    User.find({},{}, { sort: { score: -1 }, }, (err, users) => {
         res.json(users);
-   });
+   }).limit(10);
 });
 
 router.get('/logout', function (req, res) {
