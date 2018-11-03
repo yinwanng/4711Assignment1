@@ -42,6 +42,7 @@ let setupLogin = () => {
     passwordInput.name = "loginPassword";
     passwordInput.classList = ["form-control"];
     passwordInput.placeholder = "Enter password";
+    passwordInput.type = "password";
     
     form.appendChild(emailLabel);
     form.appendChild(emailInput);
