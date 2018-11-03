@@ -7,8 +7,22 @@ setupLogin = () => {
     let br = document.createElement("br");
     let br2 = document.createElement("br");
     form.classList = ["form-group row"];
-    container.appendChild(form);
+    
+    let loginHeader = document.createElement("h4");
+    let loginMsgText = document.createTextNode(msgLogin);
+    loginHeader.id = "loginHeader";
+    loginHeader.appendChild(loginMsgText);
+    container.appendChild(loginHeader);
 
+    let registrationHeader = document.createElement("h4");
+    let registrationMsgText = document.createTextNode(msgRegistration);
+    registrationHeader.id = "registrationHeader";
+    registrationHeader.style.display = "none";
+    registrationHeader.appendChild(registrationMsgText);
+    container.appendChild(registrationHeader);
+
+    container.appendChild(form);
+    
     let emailLabel = document.createElement("label");
     let emailText = document.createTextNode("E-mail");
     emailLabel.appendChild(emailText);
@@ -97,17 +111,6 @@ setupRegistration = () => {
     passwordInput.classList = ["form-control"];
     passwordInput.placeholder = "Enter password";
 
-    // let passwordConfirmationLabel = document.createElement("label");
-    // passwordConfirmationLabel.classList = ["col-form-label"];
-    // let passwordConfirmationText = document.createTextNode("Confirm Password");
-    // passwordConfirmationLabel.appendChild(passwordConfirmationText);
-    // let passwordConfirmationInput = document.createElement("input");
-    // passwordConfirmationInput.required = true;
-    // passwordConfirmationInput.name = "passwordConfirmation";
-    // passwordConfirmationInput.classList = ["form-control"];
-    // form.appendChild(passwordConfirmationLabel);
-    // form.appendChild(passwordConfirmationInput);
-
     form.appendChild(usernameLabel);
     form.appendChild(usernameInput);
     form.appendChild(emailLabel);
@@ -142,3 +145,4 @@ setupRequired = () => {
     requiredMessageDiv.style.display = "none";
     container.appendChild(requiredMessageDiv);
 }
+

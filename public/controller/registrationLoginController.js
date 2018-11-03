@@ -9,13 +9,17 @@ window.onload = () => {
 signMeUp = () => {
     event.preventDefault();
     $('#loginForm').hide();
+    $('#loginHeader').hide();
     $('#registrationForm').show();
+    $('#registrationHeader').show();
 }
 
 loginMeIn = () => {
     event.preventDefault();
     $('#registrationForm').hide();
+    $('#registrationHeader').hide();
     $('#loginForm').show();
+    $('#loginHeader').show();
 }
 
 retrieveErrors = () => {
