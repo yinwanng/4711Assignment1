@@ -1,3 +1,4 @@
+// Execute functions when registration login page is loaded
 window.onload = () => {
     createHomeNavBar();
     createRegLogContainer();
@@ -8,6 +9,7 @@ window.onload = () => {
     retrieveErrors().then(displayErrors);
 }
 
+// Hide login form and message if on sign up 
 let signMeUp = () => {
     event.preventDefault();
     $('#loginForm').hide();
@@ -16,6 +18,7 @@ let signMeUp = () => {
     $('#registrationHeader').show();
 }
 
+// Hide registration form and message if on login 
 let loginMeIn = () => {
     event.preventDefault();
     $('#registrationForm').hide();
@@ -24,6 +27,7 @@ let loginMeIn = () => {
     $('#loginHeader').show();
 }
 
+// Retrieve validation errors
 let retrieveErrors = () => {
     return $.ajax({
         type: 'GET',
@@ -34,11 +38,11 @@ let retrieveErrors = () => {
     }});
 }
 
+// Display what validation errors has occured on page
 let displayErrors = () => {
     if(errors) {
         $('#infoRequired').show();
         document.getElementById("infoRequired").innerHTML = errors[0].msg;
-
         if(errors[0].msg == msgEnterValidEmailRegistration
         || errors[0].msg == msgUsernameOrEmailTaken) {
             $('#loginForm').hide();
@@ -47,6 +51,7 @@ let displayErrors = () => {
     }
 }
 
+// Display welcome message
 let setupWelcomeMessage = () => {
     $('#welcomeGameMessage').text(msgWelcome);
 }
