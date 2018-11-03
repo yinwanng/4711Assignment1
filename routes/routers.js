@@ -104,12 +104,14 @@ router.get('/information', function(req, res, next) {
     });
 });
 
+// retrieve the top 10 scores from db
 router.get('/score', function(req, res, next){   
     User.find({},{}, { sort: { score: -1 }, }, (err, users) => {
         res.json(users);
    }).limit(10);
 });
 
+// destroy session when logged out
 router.get('/logout', function (req, res) {
     if(req.session) {
         req.session.destroy(function (err) {
@@ -122,6 +124,7 @@ router.get('/logout', function (req, res) {
     }
 });
 
+// check validation errors received
 router.get('/check', function (req, res) {
     if(req.session.errors) {
         res.send(req.session.errors);
