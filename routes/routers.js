@@ -35,7 +35,7 @@ router.post('/', function(req, res, next){
         }
 
         var userData = {
-            email: req.body.email,
+            email: req.body.email.toLowerCase(),
             username: req.body.username,
             password: req.body.password,
             score: "0"
@@ -63,7 +63,7 @@ router.post('/', function(req, res, next){
         }
  
         // login: authenticate user
-        User.authenticate(req.body.loginEmail, req.body.loginPassword, function (error, user) {
+        User.authenticate(req.body.loginEmail.toLowerCase(), req.body.loginPassword, function (error, user) {
             if (error || !user) {
                 req.session.errors = [{msg: "- The email or password is incorrect."}];
                 return res.redirect('/');
