@@ -110,6 +110,7 @@ let setupRegistration = () => {
     passwordInput.name = "password";
     passwordInput.classList = ["form-control"];
     passwordInput.placeholder = "Enter password";
+    passwordInput.type = "password";
 
     form.appendChild(usernameLabel);
     form.appendChild(usernameInput);
